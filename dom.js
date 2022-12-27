@@ -29,14 +29,32 @@
 //}
 
 //#getElementByTagName
-var l=document.getElementsByTagName('li');
+//var l=document.getElementsByTagName('li');
 
-var q=l[2];
-console.log(q);
-q.style.backgroundColor="green";
+//var q=l[2];
+//console.log(q);
+//q.style.backgroundColor="green";
 
 
-for(var i=0;i<l.length;i++)
+//for(var i=0;i<l.length;i++)
+//{
+    //l[i].style.backgroundColor="blue";
+//}
+//using querySelector
+// var item=document.querySelector('.list-group');
+// console.log(item.childNodes);
+// console.log(items.childNodes[1]);
+// var a=item.lastElementChild;
+// console.log(a);
+// var third=item.childNodes[3];
+// third.style.backgroundColor='green';
+// item.childNodes[5].style.color="white";
+
+var items=document.querySelectorAll('li:nth-child(2)');
+console.log(items);
+(items[0]).style.color='green';
+var odd=document.querySelectorAll('li:nth-child(odd)');
+for(var i=0;i<odd.length;i++)
 {
-    l[i].style.backgroundColor="blue";
+    odd[i].style.backgroundColor='green';
 }
