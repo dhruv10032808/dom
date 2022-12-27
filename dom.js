@@ -14,10 +14,29 @@
 //var n=document.querySelector(".title");
 //n.style.color='green';
 //n.style.fontWeight='bold';
-console.log(document.getElementsByClassName('list-group-item'));
-var l=document.getElementsByClassName('list-group-item');
-var y=document.getElementById('items');
+//#getElementByClassName
+//console.log(document.getElementsByClassName('list-group-item'));
+//var l=document.getElementsByClassName('list-group-item');
+//var y=document.getElementById('items');
+//var q=l[2];
+//console.log(q);
+//q.style.backgroundColor="green";
+//y.style.fontWeight='bold';
+
+//for(var i=0;i<l.length;i++)
+//{
+    //l[i].style.backgroundColor="blue";
+//}
+
+//#getElementByTagName
+var l=document.getElementsByTagName('li');
+
 var q=l[2];
 console.log(q);
 q.style.backgroundColor="green";
-y.style.fontWeight='bold';
+
+
+for(var i=0;i<l.length;i++)
+{
+    l[i].style.backgroundColor="blue";
+}
