@@ -100,6 +100,6 @@ var p=document.querySelector('div #items');
 var q=document.querySelector('ul .list-group-item');
 p.insertBefore(h,q);
 //output of element
-console.log(h);
+//console.log(h);
 
 
