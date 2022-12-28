@@ -1,4 +1,4 @@
-console.log(document.getElementById('users'));
+//console.log(document.getElementById('users'));
 var a=document.querySelector('.items');
 
 a.childNodes[1].innerText='Hello';
@@ -21,28 +21,25 @@ function onSubmit(e) {
       // alert('Please enter all fields');
       msg.classList.add('error');
       msg.innerHTML = 'Please enter all fields';
-  
       // Remove error after 3 seconds
       setTimeout(() => msg.remove(), 3000);
-    } else {
+    } else if(!alert('Click confirm to book')){
       // Create new list item with user
-      const li = document.createElement('li');
-  
+      var li = document.createElement('li');
       // Add text node with input values
       li.appendChild(document.createTextNode(`${nameInput.value}: ${emailInput.value}`));
-  
+      // Append to ul
+      userList.appendChild(li);
       // Add HTML
       // li.innerHTML = `<strong>${nameInput.value}</strong>e: ${emailInput.value}`;
        var obj={
         name: nameInput.value,
         email: emailInput.value
        };
+      // const arr=[];
+      // arr.push(`${nameInput.value}: ${emailInput.value}`);
        var str=JSON.stringify(obj);
-      // Append to ul
-      userList.appendChild(li);
       //setting value to local storage
-      localStorage.setItem('Value',str);
-      
- 
+      localStorage.setItem(obj.email,str);
     }
   }
