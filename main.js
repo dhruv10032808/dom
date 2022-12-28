@@ -1,6 +1,6 @@
 console.log(document.getElementById('users'));
 var a=document.querySelector('.items');
-console.log(a.childNodes);
+
 a.childNodes[1].innerText='Hello';
 a.childNodes[1].style.backgroundColor='green';
 a.childNodes[3].style.backgroundColor='yellow';
