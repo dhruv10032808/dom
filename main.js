@@ -37,9 +37,7 @@ function onSubmit(e) {
       // Append to ul
       userList.appendChild(li);
   
-      // Clear fields
-      //nameInput.value = '';
-      //emailInput.value = '';
+      
 
       //setting value to local storage
       localStorage.setItem('Name',nameInput.value);
