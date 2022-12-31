@@ -30,8 +30,10 @@ function onSubmit(e) {
       var li = document.createElement('li');
       var edit = document.createElement('button');
       edit.appendChild(document.createTextNode('EDIT'+'    '));
+
+      //DELETE BUTTON
       var button = document.createElement('button');
-      button.setAttribute('click',del(email));
+      button.setAttribute('click',del('${email}');
       button.appendChild(document.createTextNode('X'));
       
       // Add text node with input values
@@ -58,6 +60,5 @@ function onSubmit(e) {
   function del(emailId)
   {
     console.log(emailId);
-    localStorage.removeItem(emailId);
   }
   
