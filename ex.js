@@ -44,53 +44,13 @@
 
 // b()
 
-class Student{
-    static i=0;
+document.getElementById('btn').addEventListener("click",function onclick(){
+    console.log("button clicked");
+});
+document.addEventListener('DOMContentLoaded',function dom(){
+    console.log("DOM has loaded");
+});
 
- constructor(name,age,phonenumber,marks){
-this.name=name;
-
-this.age=age;
-
-this.phonenumber=phonenumber;
-
-this.marks=marks;
-Student.i=Student.i+1;
-
-    }
-static count(){
-        console.log(Student.i);
-    }
-
-placement(minage){
-
-    return(minmarks)=>{
-        if(this.marks>=minmarks && this.age>=minage)
-{
-            return(this.name+" "+"eligible");
-    
-        }
-    
-        else{
-    
-            return(this.name+" "+"not eligible");
-    
-        }
-    }
-
-}
-}
-var a=new Student("Ram",15,948474,60);
-var b=new Student("Zoya",18,947498,90);
-var c=new Student("Xyaa",20,890756,30);
-var d=new Student("Yash",19,758949,40);
-var e=new Student("Paresh",17,736572,70);
-Student.count();
-console.log(a.placement(17)(40));
-console.log(b.placement(17)(40));
-console.log(c.placement(17)(40));
-console.log(d.placement(17)(40));
-console.log(e.placement(17)(40));
 
 
 
