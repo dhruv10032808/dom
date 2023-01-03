@@ -100,7 +100,7 @@ function updateLastUserActivityTime(){
            },1000)
       })
 }
-//console.log(updateLastUserActivityTime());
+
 function updates(){
     Promise.all([createPost(),updateLastUserActivityTime()]).then((data)=>{
         console.log("ActivityTime after post:"+ data[1]);
