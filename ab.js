@@ -18,7 +18,7 @@ function local(e){
    };
 //    var p=JSON.stringify(obj);
 //    localStorage.setItem(obj.expense,p);
-   axios.post("https://crudcrud.com/api/0c9777d4bf2149aaa81651f21c47c1bd/ExpenseData",obj)
+   axios.post("https://crudcrud.com/api/1aeafde207a743858b850220c2cd4b85/ExpenseData",obj)
    .then((res)=>{
     onsubmit(obj)
     //console.log(res)
@@ -31,7 +31,7 @@ function local(e){
 
 window.addEventListener('DOMContentLoaded', () => {
     
-        axios.get("https://crudcrud.com/api/0c9777d4bf2149aaa81651f21c47c1bd/ExpenseData")
+        axios.get("https://crudcrud.com/api/1aeafde207a743858b850220c2cd4b85/ExpenseData")
         .then((res)=>{
             for(var i=0;i<res.data.length;i++){
                 onsubmit(res.data[i]);
@@ -49,7 +49,7 @@ function onsubmit(user){
     btn2.appendChild(document.createTextNode('Delete Expense'));
     btn2.setAttribute('onclick',"del('"+user._id+"')");
     console.log(btn2);
-    btn.setAttribute('onclick',"edit('"+user.expense+"')");
+    btn.setAttribute('onclick',"edit('"+user._id+"')");
     var li=document.createElement('li');
     li.id=user._id;
     console.log(li);
@@ -58,17 +58,24 @@ function onsubmit(user){
     li.appendChild(btn2) ;
     list.appendChild(li);
 }
-function edit(li){
-    localStorage.removeItem(li);
-    const xyz=document.getElementById(li);
-    list.removeChild(xyz);
-    li.expense=document.getElementById('exp').value;
-    li.description=document.getElementById('desc').value;
-    li.category=document.getElementById('abc').value;
+function edit(userId){
+    //localStorage.removeItem(li);
+    axios.get(`https://crudcrud.com/api/1aeafde207a743858b850220c2cd4b85/ExpenseData/${userId}`)
+    .then((res)=>{
+        ex.value=res.data.expense;
+        de.value=res.data.description;
+        cat.value=res.data.category;
+        //console.log(userId)
+        
+    })
+    del(userId);
+    // document.getElementById('exp').value=expense
+    // document.getElementById('desc').value=description
+    // document.getElementById('abc').value=Category
 }
 function del(userId){ 
     //localStorage.removeItem(li);
-    axios.delete(`https://crudcrud.com/api/0c9777d4bf2149aaa81651f21c47c1bd/ExpenseData/${userId}`)
+    axios.delete(`https://crudcrud.com/api/1aeafde207a743858b850220c2cd4b85/ExpenseData/${userId}`)
     .then((response)=>{
     const curr=document.getElementById(userId);
     list.removeChild(curr);
