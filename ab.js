@@ -16,11 +16,19 @@ function local(e){
     description,
     category
    };
-   var p=JSON.stringify(obj);
-   localStorage.setItem(obj.expense,p);
-   onsubmit(obj);
- 
+//    var p=JSON.stringify(obj);
+//    localStorage.setItem(obj.expense,p);
+   axios.post("https://crudcrud.com/api/0c9777d4bf2149aaa81651f21c47c1bd/ExpenseData",obj)
+   .then((res)=>{
+    onsubmit(obj)
+    //console.log(res)
+   })
+   .catch((err)=>{
+    document.body.innerHTML=document.body.innerHTML+`<h4>Something went wrong</h4>`
+})
+    
 }
+
 window.addEventListener('DOMContentLoaded', (e) => {
     Object.keys(localStorage).forEach(key => {
         const user = JSON.parse(localStorage.getItem(key))
