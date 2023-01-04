@@ -47,11 +47,11 @@ function onsubmit(user){
     btn.appendChild(document.createTextNode('Edit Expense'));
     var btn2=document.createElement('button');
     btn2.appendChild(document.createTextNode('Delete Expense'));
-    btn2.setAttribute('onclick',"del('"+user.expense+"')");
+    btn2.setAttribute('onclick',"del('"+user._id+"')");
     console.log(btn2);
     btn.setAttribute('onclick',"edit('"+user.expense+"')");
     var li=document.createElement('li');
-    li.id=user.expense;
+    li.id=user._id;
     console.log(li);
     li.appendChild(document.createTextNode(user.expense +" "+ user.description+" "+ user.category));
     li.appendChild(btn) ;
@@ -66,11 +66,14 @@ function edit(li){
     li.description=document.getElementById('desc').value;
     li.category=document.getElementById('abc').value;
 }
-function del(li){ 
-    localStorage.removeItem(li);
-    
-    const curr=document.getElementById(li);
+function del(userId){ 
+    //localStorage.removeItem(li);
+    axios.delete(`https://crudcrud.com/api/0c9777d4bf2149aaa81651f21c47c1bd/ExpenseData/${userId}`)
+    .then((response)=>{
+    const curr=document.getElementById(userId);
     list.removeChild(curr);
+    })
+    .catch((err)=>console.log(err));
 }
 
 
