@@ -29,12 +29,18 @@ function local(e){
     
 }
 
-window.addEventListener('DOMContentLoaded', (e) => {
-    Object.keys(localStorage).forEach(key => {
-        const user = JSON.parse(localStorage.getItem(key))
-        onsubmit(user)
-    })
-})
+window.addEventListener('DOMContentLoaded', () => {
+    
+        axios.get("https://crudcrud.com/api/0c9777d4bf2149aaa81651f21c47c1bd/ExpenseData")
+        .then((res)=>{
+            for(var i=0;i<res.data.length;i++){
+                onsubmit(res.data[i]);
+            }
+        })
+        .catch((err)=>console.log(err));
+        
+     })
+//})
 
 function onsubmit(user){
     var btn=document.createElement('button');
