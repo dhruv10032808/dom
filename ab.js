@@ -16,12 +16,11 @@ function local(e){
     description,
     category
    };
-//    var p=JSON.stringify(obj);
-//    localStorage.setItem(obj.expense,p);
-   axios.post("https://crudcrud.com/api/1aeafde207a743858b850220c2cd4b85/ExpenseData",obj)
+
+   axios.post("https://crudcrud.com/api/124a4f06e93c4d8281f8b2bca84185c1/ExpenseData",obj)
    .then((res)=>{
     onsubmit(obj)
-    //console.log(res)
+    
    })
    .catch((err)=>{
     document.body.innerHTML=document.body.innerHTML+`<h4>Something went wrong</h4>`
@@ -31,7 +30,7 @@ function local(e){
 
 window.addEventListener('DOMContentLoaded', () => {
     
-        axios.get("https://crudcrud.com/api/1aeafde207a743858b850220c2cd4b85/ExpenseData")
+        axios.get("https://crudcrud.com/api/124a4f06e93c4d8281f8b2bca84185c1/ExpenseData")
         .then((res)=>{
             for(var i=0;i<res.data.length;i++){
                 onsubmit(res.data[i]);
@@ -40,7 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
         .catch((err)=>console.log(err));
         
      })
-//})
+
 
 function onsubmit(user){
     var btn=document.createElement('button');
@@ -59,8 +58,8 @@ function onsubmit(user){
     list.appendChild(li);
 }
 function edit(userId){
-    //localStorage.removeItem(li);
-    axios.get(`https://crudcrud.com/api/1aeafde207a743858b850220c2cd4b85/ExpenseData/${userId}`)
+   
+    axios.get(`https://crudcrud.com/api/124a4f06e93c4d8281f8b2bca84185c1/ExpenseData/${userId}`)
     .then((res)=>{
         ex.value=res.data.expense;
         de.value=res.data.description;
@@ -69,13 +68,10 @@ function edit(userId){
         
     })
     del(userId);
-    // document.getElementById('exp').value=expense
-    // document.getElementById('desc').value=description
-    // document.getElementById('abc').value=Category
+   
 }
 function del(userId){ 
-    //localStorage.removeItem(li);
-    axios.delete(`https://crudcrud.com/api/1aeafde207a743858b850220c2cd4b85/ExpenseData/${userId}`)
+    axios.delete(`https://crudcrud.com/api/124a4f06e93c4d8281f8b2bca84185c1/ExpenseData/${userId}`)
     .then((response)=>{
     const curr=document.getElementById(userId);
     list.removeChild(curr);
